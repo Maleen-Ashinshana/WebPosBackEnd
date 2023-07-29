@@ -5,11 +5,8 @@ import com.example.assingment7backend.entity.CustomerEntity;
 import com.example.assingment7backend.service.customer.CustomerService;
 import com.example.assingment7backend.service.util.ServiceFactory;
 import com.example.assingment7backend.service.util.ServiceTypes;
-import com.example.assingment7backend.util.FactoryConfiguration;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -17,7 +14,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+public class CustomerServlet extends HttpServlet {
     private String message;
     private CustomerEntity customer;
     public CustomerService customerService;

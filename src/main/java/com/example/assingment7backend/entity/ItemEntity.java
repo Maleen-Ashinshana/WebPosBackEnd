@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name = "Item")
 @ToString
-public class ItemEntity {
+public class ItemEntity implements SuperEntity {
     @Id
     private String itemCode;
     private String itemName;

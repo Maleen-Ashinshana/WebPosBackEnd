@@ -5,11 +5,20 @@
          version="4.0">
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>com.example.assingment7backend.HelloServlet</servlet-class>
+        <servlet-class>com.example.assingment7backend.CustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/back</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ItemServlate</servlet-name>
+        <servlet-class>com.example.assingment7backend.ItemSevlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ItemServlate</servlet-name>
+        <url-pattern>/item</url-pattern>
     </servlet-mapping>
 
     <filter>
