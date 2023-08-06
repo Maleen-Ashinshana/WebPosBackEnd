@@ -13,11 +13,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ItemServlate</servlet-name>
-        <servlet-class>com.example.assingment7backend.ItemSevlet</servlet-class>
+        <servlet-name>ItemServlet</servlet-name>
+        <servlet-class>com.example.assingment7backend.ItemServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ItemServlate</servlet-name>
+        <servlet-name>ItemServlet</servlet-name>
         <url-pattern>/item</url-pattern>
     </servlet-mapping>
 

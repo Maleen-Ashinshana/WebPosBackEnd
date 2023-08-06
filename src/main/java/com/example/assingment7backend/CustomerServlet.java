@@ -32,12 +32,13 @@ public class CustomerServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     }
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("jasdbuhjbvuiabvui");
         Jsonb jsonb=JsonbBuilder.create();
         Customer customerDTO=jsonb.fromJson(request.getReader(),Customer.class);
         /*Customer customerDto=new Customer(jsonb.fromJso);*/
-        System.out.println(customerDTO+"aaaaa");
+        System.out.println(customerDTO.getCustomerId()+"aaaaa");
         boolean saved= customerService.saveCustomer(customerDTO);
         if (saved){
             System.out.println("Done");

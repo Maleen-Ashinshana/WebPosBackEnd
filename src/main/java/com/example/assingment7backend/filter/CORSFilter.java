@@ -7,10 +7,9 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebFilter("/*")
+@WebFilter(filterName = "CORSFilter",urlPatterns = "/*")
 public class CORSFilter implements Filter {
     public void init(FilterConfig filterConfig){
-
     }
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

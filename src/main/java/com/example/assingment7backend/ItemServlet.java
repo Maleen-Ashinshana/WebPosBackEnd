@@ -1,22 +1,20 @@
 package com.example.assingment7backend;
 
-import com.example.assingment7backend.dto.Customer;
 import com.example.assingment7backend.dto.ItemDTO;
 import com.example.assingment7backend.service.customer.ItemService;
 import com.example.assingment7backend.service.util.ServiceFactory;
 import com.example.assingment7backend.service.util.ServiceTypes;
-import com.example.assingment7backend.service.util.SuperSevice;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
-
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-
-public class ItemSevlet extends HttpServlet {
+@WebServlet(name = "ItemServlet", value = "/item")
+public class ItemServlet extends HttpServlet {
     public ItemService itemService;
 
     @Override
