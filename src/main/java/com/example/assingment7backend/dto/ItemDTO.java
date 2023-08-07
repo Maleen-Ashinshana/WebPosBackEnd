@@ -2,17 +2,17 @@ package com.example.assingment7backend.dto;
 
 public class ItemDTO {
     private String itemCode;
-    private String name;
-    private int price;
+    private String itemName;
+    private int itemPrice;
     private int qty;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(String itemCode, String name, int price, int qty) {
+    public ItemDTO(String itemCode, String itemName, int itemPrice, int qty) {
         this.itemCode = itemCode;
-        this.name = name;
-        this.price = price;
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
         this.qty = qty;
     }
 
@@ -24,20 +24,20 @@ public class ItemDTO {
         this.itemCode = itemCode;
     }
 
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public int getPrice() {
-        return price;
+    public int getItemPrice() {
+        return itemPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setItemPrice(int itemPrice) {
+        this.itemPrice = itemPrice;
     }
 
     public int getQty() {
@@ -46,5 +46,15 @@ public class ItemDTO {
 
     public void setQty(int qty) {
         this.qty = qty;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemDTO{" +
+                "itemCode='" + itemCode + '\'' +
+                ", itemName='" + itemName + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", qty=" + qty +
+                '}';
     }
 }

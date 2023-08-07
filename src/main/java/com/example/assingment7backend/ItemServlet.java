@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-@WebServlet(name = "ItemServlet", value = "/item")
+@WebServlet(name = "ItemServlet"/*, value = "/items"*/,urlPatterns = "back")
 public class ItemServlet extends HttpServlet {
     public ItemService itemService;
 
@@ -28,12 +28,13 @@ public class ItemServlet extends HttpServlet {
         }
 
     }
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("jasdbuhjbvuiabvui");
+        System.out.println("ItemsMethod");
         Jsonb jsonb= JsonbBuilder.create();
         ItemDTO itemDTO =jsonb.fromJson(request.getReader(),ItemDTO.class);
         /*Customer customerDto=new Customer(jsonb.fromJso);*/
-        System.out.println(itemDTO+"aaaaa");
+        System.out.println(itemDTO);
         boolean saved= itemService.saveItem(itemDTO);
         if (saved){
             System.out.println("Done");

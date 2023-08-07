@@ -21,6 +21,6 @@ public class Conveter {
     }
     public ItemEntity toItem(ItemDTO itemDTO){
         System.out.println(itemDTO.toString());
-        return new ItemEntity(itemDTO.getItemCode(),itemDTO.getName(),itemDTO.getPrice(), itemDTO.getQty());
+        return new ItemEntity(itemDTO.getItemCode(),itemDTO.getItemName(),itemDTO.getItemPrice(), itemDTO.getQty());
     }
 }

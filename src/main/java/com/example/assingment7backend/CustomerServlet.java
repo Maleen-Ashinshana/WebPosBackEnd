@@ -34,11 +34,13 @@ public class CustomerServlet extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("jasdbuhjbvuiabvui");
+        if (request.getContextPath()==null|| request.getContentType().toLowerCase().startsWith("application/json")){
+            response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+        }
         Jsonb jsonb=JsonbBuilder.create();
         Customer customerDTO=jsonb.fromJson(request.getReader(),Customer.class);
         /*Customer customerDto=new Customer(jsonb.fromJso);*/
-        System.out.println(customerDTO.getCustomerId()+"aaaaa");
+        System.out.println(customerDTO.getCustomerId());
         boolean saved= customerService.saveCustomer(customerDTO);
         if (saved){
             System.out.println("Done");

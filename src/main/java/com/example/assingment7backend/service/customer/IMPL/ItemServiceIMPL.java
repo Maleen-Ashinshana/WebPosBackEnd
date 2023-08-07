@@ -23,6 +23,6 @@ public class ItemServiceIMPL implements ItemService {
 
     @Override
     public boolean saveItem(ItemDTO itemDTO) throws DuplicateException {
-        return itemDAO.save(new ItemEntity(itemDTO.getItemCode(),itemDTO.getName(), itemDTO.getPrice(), itemDTO.getQty()));
+        return itemDAO.save(new ItemEntity(itemDTO.getItemCode(),itemDTO.getItemName(), itemDTO.getItemPrice(), itemDTO.getQty()));
     }
 }
