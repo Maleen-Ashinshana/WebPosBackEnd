@@ -54,18 +54,19 @@ public class CustomerDAOIMPL implements CustomerDAO {
     }
 
     @Override
-    public boolean delete(String id) {
+    public CustomerEntity delete(CustomerEntity customerEntity) {
         Session session=FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
         try {
-            CustomerEntity ct=session.load(CustomerEntity.class,id);
+            CustomerEntity ct=session.get(CustomerEntity.class, customerEntity.getCustomerId());
+
             session.delete(ct);
             transaction.commit();
-            return true;
+            return ct;
         }catch (Exception e){
             e.printStackTrace();
             transaction.rollback();
-            return false;
+            return null;
         }
     }
 

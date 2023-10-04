@@ -12,6 +12,6 @@ public interface CustomerService extends SuperSevice {
     boolean saveCustomer(Customer customer) throws DuplicateException;
     Customer searchCustomer(String id) throws NotFoundException;
     boolean updateCustomer(Customer customer) throws NotFoundException;
-    boolean deleteCustomer(String id) throws SQLException,ClassNotFoundException;
+    Customer deleteCustomer(Customer customer) throws SQLException,ClassNotFoundException;
     List<Customer> getAllCustomer();
 }

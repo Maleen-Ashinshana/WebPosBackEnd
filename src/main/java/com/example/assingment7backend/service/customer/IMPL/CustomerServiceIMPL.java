@@ -41,8 +41,13 @@ public class CustomerServiceIMPL implements CustomerService {
     }
 
     @Override
-    public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
-        return customerDAO.delete(id);
+    public Customer deleteCustomer(Customer customerDto) throws SQLException, ClassNotFoundException {
+        CustomerEntity customer=customerDAO.delete((new CustomerEntity(customerDto.getCustomerId())));
+        if (customer==null){
+            return conveter.fromCustomer(customer);
+        }
+        return null;
+        /*return customerDAO.delete(id);*/
     }
 
     @Override

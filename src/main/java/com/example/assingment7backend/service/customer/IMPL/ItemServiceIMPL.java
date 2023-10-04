@@ -46,7 +46,8 @@ public class ItemServiceIMPL implements ItemService {
 
     @Override
     public boolean deleteItem(String id) throws SQLException, ClassNotFoundException {
-        return itemDAO.delete(id);
+        return false;
+        /*return itemDAO.delete(id);*/
     }
 
     @Override

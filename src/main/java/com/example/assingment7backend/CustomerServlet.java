@@ -34,16 +34,18 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (request.getContextPath()==null|| request.getContentType().toLowerCase().startsWith("application/json")){
+        /*if (request.getContextPath()==null|| request.getContentType().toLowerCase().startsWith("application/json")){
             response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-        }
+        }*/
 
         Customer customerDTO=jsonb.fromJson(request.getReader(),Customer.class);
         /*Customer customerDto=new Customer(jsonb.fromJso);*/
         System.out.println(customerDTO.getCustomerId());
         boolean saved= customerService.saveCustomer(customerDTO);
         if (saved){
-            System.out.println("Done");
+            response.setStatus(HttpServletResponse.SC_CREATED);
+            response.setContentType("application/json");
+            jsonb.toJson(customerDTO, response.getWriter());
         }else {
             System.out.println("No");
         }
@@ -69,10 +71,24 @@ public class CustomerServlet extends HttpServlet {
         if (request.getContentType()==null || !request.getContentType().toLowerCase().startsWith("application/json")){
             response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
         }
-        Customer customer1=jsonb.fromJson(request.getReader(),Customer.class);
+        Customer customerDTO=jsonb.fromJson(request.getReader(),Customer.class);
         try {
+            customerDTO=customerService.deleteCustomer(customerDTO);
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("application/json");
+            jsonb.toJson(customerDTO, response.getWriter());
+            System.out.println("Yes");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("*****");
+//        Customer customer1=jsonb.fromJson(request.getReader(),Customer.class);
+       /* try {
             boolean isDelete= customerService.deleteCustomer(String.valueOf(customer1));
             if (isDelete){
+
                 System.out.println("Delete SuccessFull");
             }else{
                 System.out.println("No");
@@ -81,7 +97,16 @@ public class CustomerServlet extends HttpServlet {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
-        }
+        }*/
+       /* Customer customerDto=jsonb.fromJson(request.getReader(),Customer.class);
+        try {
+            customerDto=customerService.deleteCustomer(String.valueOf(customerDto));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }*/
+
     }
     @Override
     public void doPut(HttpServletRequest request,HttpServletResponse response) throws IOException {

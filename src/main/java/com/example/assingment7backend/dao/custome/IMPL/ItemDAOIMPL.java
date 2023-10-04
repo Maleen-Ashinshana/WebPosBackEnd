@@ -52,6 +52,11 @@ public class ItemDAOIMPL implements ItemDAO {
     }
 
     @Override
+    public ItemEntity delete(ItemEntity entity) {
+        return null;
+    }
+
+  /*  @Override
     public boolean delete(String id) {
 
         try {
@@ -66,7 +71,7 @@ public class ItemDAOIMPL implements ItemDAO {
         }finally {
             session.close();
         }
-    }
+    }*/
 
     @Override
     public ItemEntity search(String id) throws ConstraintViolationException {

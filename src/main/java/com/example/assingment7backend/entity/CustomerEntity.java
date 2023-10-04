@@ -21,6 +21,11 @@ public class CustomerEntity implements SuperEntity {
     private String customerName;
     private String customerAddress;
     private int customerSalary;
-   /* @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL);
+
+    public CustomerEntity(String customerId) {
+        this.customerId = customerId;
+    }
+
+    /* @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL);
     private List<OrderEntity> entities=new ArrayList<>();*/
 }
